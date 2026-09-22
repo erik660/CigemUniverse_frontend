@@ -3,7 +3,7 @@ const bool isLocal = false;
 
 // Untuk Emulator Android gunakan '10.0.2.2:8000', untuk Web/Chrome gunakan '127.0.0.1:8000'
 const String localHost = '127.0.0.1:8000'; 
-const String productionHost = 'cigemuniverse.vercel.app';
+const String productionHost = 'cigem-universe-backend.vercel.app';
 
 const String backendHost = isLocal ? localHost : productionHost;
 

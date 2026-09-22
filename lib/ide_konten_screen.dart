@@ -200,7 +200,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
 
     try {
       final contextualPrompt = _buildContextualPrompt(selectedAset!, selectedGaya!);
-      final url = Uri.parse('https://cigemuniverse.vercel.app/api/simpan_ide');
+      final url = Uri.parse('https://cigem-universe-backend.vercel.app/api/simpan_ide');
       final body = json.encode({
         'aset': selectedAset,
         'gaya': selectedGaya,
@@ -286,7 +286,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
         try { _ideaCache[key] = {'ide_konten': ideKonten, 'ranking': ranking, 'timestamp': DateTime.now().toIso8601String()}; } catch (_) {}
         setState(() {
           generatedIdea = ideKonten;
-          hasilRanking = ranking;
+          hasilRanking = ranking ?? [];
           isLoading = false;
         });
         if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('✅ Ide konten tersimpan di riwayat!'), duration: Duration(seconds: 2)));
