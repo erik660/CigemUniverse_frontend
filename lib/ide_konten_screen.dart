@@ -313,8 +313,10 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
           errorMsg = '🔒 SSL Certificate Error - coba restart server';
         } else if (e.toString().contains('Connection refused')) {
           errorMsg = '🔴 Backend offline - pastikan ngrok masih berjalan';
+        } else if (e.toString().contains('json_validate_failed') || e.toString().contains('Failed to generate JSON')) {
+          errorMsg = '🤖 AI kebingungan menyusun kata. Silakan klik Generate Ide lagi!';
         } else {
-          errorMsg = '❌ Error: ${e.toString()}';
+          errorMsg = '❌ Error: ${e.toString().length > 100 ? e.toString().substring(0, 100) + "..." : e.toString()}';
         }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
