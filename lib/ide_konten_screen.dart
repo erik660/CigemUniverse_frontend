@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -78,7 +78,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
     );
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('🔄 Pilihan telah dikosongkan.'),
+        content: Text('ðŸ”„ Pilihan telah dikosongkan.'),
         duration: Duration(seconds: 1),
       ),
     );
@@ -96,7 +96,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
     if (selectedGaya != null && !_isValidCombination(val, selectedGaya!)) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('⚠️ Aset/mesin "$val" tidak cocok dengan gaya "$selectedGaya". Pilih Journey PO / BTS atau Portofolio.'),
+          content: Text('âš ï¸ Aset/mesin "$val" tidak cocok dengan gaya "$selectedGaya". Pilih Journey PO / BTS atau Portofolio.'),
           duration: const Duration(seconds: 2),
           backgroundColor: Colors.red.shade700,
         ),
@@ -126,7 +126,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
     if (selectedAset != null && !_isValidCombination(selectedAset!, val)) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('⚠️ Gaya konten "$val" tidak cocok dengan alat/mesin "$selectedAset". Pilih Journey PO / BTS atau Portofolio.'),
+          content: Text('âš ï¸ Gaya konten "$val" tidak cocok dengan alat/mesin "$selectedAset". Pilih Journey PO / BTS atau Portofolio.'),
           duration: const Duration(seconds: 2),
           backgroundColor: Colors.red.shade700,
         ),
@@ -182,7 +182,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
     if (!_isValidCombination(selectedAset!, selectedGaya!)) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('⚠️ Kombinasi "$selectedAset" + "$selectedGaya" tidak relevan. Silakan pilih gaya lain yang lebih cocok.'),
+          content: Text('âš ï¸ Kombinasi "$selectedAset" + "$selectedGaya" tidak relevan. Silakan pilih gaya lain yang lebih cocok.'),
           duration: const Duration(seconds: 3),
         ),
       );
@@ -209,7 +209,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
 
       if (_pendingRequests.contains(key)) {
         setState(() { isLoading = false; });
-        if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Permintaan sedang diproses — tunggu sebentar.'), duration: Duration(seconds: 2)));
+        if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Permintaan sedang diproses â€” tunggu sebentar.'), duration: Duration(seconds: 2)));
         return;
       }
       _pendingRequests.add(key);
@@ -239,12 +239,12 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
             final hashtags = first['hashtags'] is List ? (first['hashtags'] as List).join(' ') : (first['hashtags'] ?? '');
             final cta = first['CTA'] ?? first['cta'] ?? '';
             
-            ideKonten = "📌 Judul: $title\n\n"
-                        "🎯 Hook (3 Detik Pertama):\n$hook\n\n"
-                        "📝 Caption:\n$caption\n\n"
-                        "🎬 Skrip / Alur Visual:\n$script\n\n"
-                        "🏷️ Hashtags: $hashtags\n\n"
-                        "👉 Call to Action (CTA):\n$cta";
+            ideKonten = "ðŸ“Œ Judul: $title\n\n"
+                        "ðŸŽ¯ Hook (3 Detik Pertama):\n$hook\n\n"
+                        "ðŸ“ Caption:\n$caption\n\n"
+                        "ðŸŽ¬ Skrip / Alur Visual:\n$script\n\n"
+                        "ðŸ·ï¸ Hashtags: $hashtags\n\n"
+                        "ðŸ‘‰ Call to Action (CTA):\n$cta";
           } else {
             ideKonten = ideKontenRaw.toString();
           }
@@ -256,12 +256,12 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
           final hashtags = ideKontenRaw['hashtags'] is List ? (ideKontenRaw['hashtags'] as List).join(' ') : (ideKontenRaw['hashtags'] ?? '');
           final cta = ideKontenRaw['CTA'] ?? ideKontenRaw['cta'] ?? '';
           if (title.toString().isNotEmpty || hook.toString().isNotEmpty || caption.toString().isNotEmpty) {
-            ideKonten = "📌 Judul: $title\n\n"
-                        "🎯 Hook (3 Detik Pertama):\n$hook\n\n"
-                        "📝 Caption:\n$caption\n\n"
-                        "🎬 Skrip / Alur Visual:\n$script\n\n"
-                        "🏷️ Hashtags: $hashtags\n\n"
-                        "👉 Call to Action (CTA):\n$cta";
+            ideKonten = "ðŸ“Œ Judul: $title\n\n"
+                        "ðŸŽ¯ Hook (3 Detik Pertama):\n$hook\n\n"
+                        "ðŸ“ Caption:\n$caption\n\n"
+                        "ðŸŽ¬ Skrip / Alur Visual:\n$script\n\n"
+                        "ðŸ·ï¸ Hashtags: $hashtags\n\n"
+                        "ðŸ‘‰ Call to Action (CTA):\n$cta";
           } else {
             ideKonten = ideKontenRaw.toString();
           }
@@ -289,7 +289,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
           hasilRanking = ranking ?? [];
           isLoading = false;
         });
-        if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('✅ Ide konten tersimpan di riwayat!'), duration: Duration(seconds: 2)));
+        if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('âœ… Ide konten tersimpan di riwayat!'), duration: Duration(seconds: 2)));
         _pendingRequests.remove(key);
       } else {
         final responseBody = response.body;
@@ -304,19 +304,19 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
       if (mounted) {
         String errorMsg = 'Error: $e';
         if (e.toString().contains('SocketException')) {
-          errorMsg = '🔴 Tidak bisa koneksi ke server. Cek WiFi/data internet';
+          errorMsg = 'ðŸ”´ Tidak bisa koneksi ke server. Cek WiFi/data internet';
         } else if (e.toString().contains('TimeoutException')) {
-          errorMsg = '⏱️ Server lambat - coba lagi (batas waktu 15 detik)';
+          errorMsg = 'â±ï¸ Server lambat - coba lagi (batas waktu 15 detik)';
         } else if (e.toString().contains('Failed host lookup')) {
-          errorMsg = '🌐 Domain ngrok tidak valid';
+          errorMsg = 'ðŸŒ Domain ngrok tidak valid';
         } else if (e.toString().contains('HandshakeException')) {
-          errorMsg = '🔒 SSL Certificate Error - coba restart server';
+          errorMsg = 'ðŸ”’ SSL Certificate Error - coba restart server';
         } else if (e.toString().contains('Connection refused')) {
-          errorMsg = '🔴 Backend offline - pastikan ngrok masih berjalan';
+          errorMsg = 'ðŸ”´ Backend offline - pastikan ngrok masih berjalan';
         } else if (e.toString().contains('json_validate_failed') || e.toString().contains('Failed to generate JSON')) {
-          errorMsg = '🤖 AI kebingungan menyusun kata. Silakan klik Generate Ide lagi!';
+          errorMsg = 'ðŸ¤– AI kebingungan menyusun kata. Silakan klik Generate Ide lagi!';
         } else {
-          errorMsg = '❌ Error: ${e.toString().length > 100 ? e.toString().substring(0, 100) + "..." : e.toString()}';
+          errorMsg = 'âŒ Error: ${e.toString().length > 100 ? e.toString().substring(0, 100) + "..." : e.toString()}';
         }
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -359,6 +359,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
     DropdownItem(category: 'ALAT & ASET', title: 'Printer Sublim', description: 'Mesin cetak sublimasi'),
     DropdownItem(category: 'ALAT & ASET', title: 'Mesin Press Sublim', description: 'Pemanas cetak sublim'),
     DropdownItem(category: 'ALAT & ASET', title: 'Mesin Press DTF', description: 'Pemanas cetak sablon DTF'),
+    DropdownItem(category: 'ALAT & ASET', title: 'Mesin Print DTF', description: 'Mesin cetak untuk sablon DTF'),
     DropdownItem(category: 'ALAT & ASET', title: 'Meja Sablon', description: 'Area cetak sablon manual'),
     DropdownItem(category: 'ALAT & ASET', title: 'Mesin Jahit', description: 'Alat jahit utama'),
     DropdownItem(category: 'ALAT & ASET', title: 'Mesin Kam', description: 'Mesin pengatur jahitan'),
@@ -550,7 +551,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
                             ),
                             const SizedBox(height: 12),
                             Text(
-                              '💡 Tips: Pakai ide ini langsung di konten Anda atau sesuaikan dengan gaya bisnis Anda',
+                              'ðŸ’¡ Tips: Pakai ide ini langsung di konten Anda atau sesuaikan dengan gaya bisnis Anda',
                               style: TextStyle(fontSize: 11, color: textGrey, fontStyle: FontStyle.italic),
                             ),
                           ],
@@ -750,7 +751,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
                             ),
                           ),
                           child: Text(
-                            '✓ $value',
+                            'âœ“ $value',
                             style: TextStyle(
                               fontSize: 12,
                               color: cigemGreen,
@@ -817,7 +818,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
                               if (isDisabled) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content: Text('⚠️ "${item.title}" tidak bisa dipilih karena kombinasi dengan alat/mesin tidak cocok.'),
+                                    content: Text('âš ï¸ "${item.title}" tidak bisa dipilih karena kombinasi dengan alat/mesin tidak cocok.'),
                                     duration: const Duration(seconds: 5),
                                     backgroundColor: Colors.red.shade700,
                                   ),
@@ -865,7 +866,7 @@ class _IdeKontenScreenState extends State<IdeKontenScreen> {
                                       ),
                                       child: Center(
                                         child: Text(
-                                          isSelected ? '✓' : '$itemIndex',
+                                          isSelected ? 'âœ“' : '$itemIndex',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 13,
